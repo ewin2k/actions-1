@@ -15,6 +15,9 @@ jobs:
             ls -ltra
             cat README.md
         
+        - name: Install cowsay
+        run: sudo apt-get install cowsay -y
+
         - name: Generate ASCII Artwork
           run: cowsay -f dog "Run" >> dog.txt
 
