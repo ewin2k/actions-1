@@ -1,0 +1,27 @@
+name: Generate Ascii
+
+on: push
+
+jobs: 
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4 
+
+        - name: Install cowsay
+          run: sudo apt-get install cowsay -y
+        
+        - name: Execute cowsay
+          run: cowsay -f dog "Run for dog" >> dog.txt
+          
+        - name: test file exist
+          run: grep -i dog dog.txt
+
+        - name: Read file
+          run: cat dog.txt
+
+        - name: list repo files
+          run: ls -ltra
+
+        
